@@ -2,7 +2,15 @@ export default [
   'strapi::logger',
   'strapi::errors',
   'strapi::security',
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      origin: ['http://localhost:4200'], // tu app Angular
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+      headers: '*',
+      keepHeaderCase: true,
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
