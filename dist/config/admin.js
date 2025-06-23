@@ -19,4 +19,9 @@ exports.default = ({ env }) => ({
         nps: env.bool('FLAG_NPS', true),
         promoteEE: env.bool('FLAG_PROMOTE_EE', true),
     },
+    /**
+     * ESTA PARTE es la que falta para que Railway lo sirva correctamente:
+     */
+    url: '/admin',
+    serveAdminPanel: true,
 });
