@@ -1,0 +1,32 @@
+{
+    "kind": "collectionType",
+    "collectionName": "marcas",
+    "info": {
+        "singularName": "marca",
+        "pluralName": "marcas",
+        "displayName": "marca"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "lineas": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::linea.linea",
+            "mappedBy": "marca"
+        },
+        "nombre": {
+            "type": "string"
+        },
+        "logo": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files"
+            ]
+        }
+    }
+}

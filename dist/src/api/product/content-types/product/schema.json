@@ -1,0 +1,72 @@
+{
+    "kind": "collectionType",
+    "collectionName": "products",
+    "info": {
+        "singularName": "product",
+        "pluralName": "products",
+        "displayName": "product"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "Nombre": {
+            "type": "string"
+        },
+        "Precio": {
+            "type": "decimal"
+        },
+        "Tamano": {
+            "type": "string"
+        },
+        "Stock": {
+            "type": "integer"
+        },
+        "Material": {
+            "type": "text"
+        },
+        "Resena": {
+            "type": "text"
+        },
+        "Imagen": {
+            "type": "media",
+            "multiple": true,
+            "allowedTypes": [
+                "images",
+                "files"
+            ]
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "Nombre"
+        },
+        "franquicia": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::franquicia.franquicia",
+            "inversedBy": "products"
+        },
+        "marca": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::marca.marca"
+        },
+        "linea": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::linea.linea"
+        },
+        "tags": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::tag.tag",
+            "inversedBy": "products"
+        },
+        "categories": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::category.category"
+        }
+    }
+}
