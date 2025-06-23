@@ -373,6 +373,36 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAnuncioAnuncio extends Struct.CollectionTypeSchema {
+  collectionName: 'anuncios';
+  info: {
+    displayName: 'anuncio';
+    pluralName: 'anuncios';
+    singularName: 'anuncio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::anuncio.anuncio'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -525,7 +555,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     Precio: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     Resena: Schema.Attribute.Text;
-    sku: Schema.Attribute.UID;
     slug: Schema.Attribute.UID<'Nombre'>;
     Stock: Schema.Attribute.Integer;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
@@ -1071,6 +1100,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::anuncio.anuncio': ApiAnuncioAnuncio;
       'api::category.category': ApiCategoryCategory;
       'api::franquicia.franquicia': ApiFranquiciaFranquicia;
       'api::linea.linea': ApiLineaLinea;

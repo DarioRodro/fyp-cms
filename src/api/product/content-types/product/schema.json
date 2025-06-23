@@ -11,9 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "sku": {
-      "type": "uid"
-    },
     "Nombre": {
       "type": "string"
     },
