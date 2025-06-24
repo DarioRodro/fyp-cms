@@ -5,9 +5,9 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:4200', 'https://starlit-semolina-8a608b.netlify.app'], // tu app Angular
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-      headers: '*',
+      origin: ['http://localhost:4200', 'https://starlit-semolina-8a608b.netlify.app'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       keepHeaderCase: true,
     },
   },
