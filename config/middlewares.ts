@@ -5,7 +5,7 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:4200'], // tu app Angular
+      origin: ['http://localhost:4200', 'https://starlit-semolina-8a608b.netlify.app'], // tu app Angular
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
       headers: '*',
       keepHeaderCase: true,
