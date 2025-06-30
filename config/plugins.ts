@@ -12,6 +12,15 @@ export default ({ env }) => ({
         api_key: env('CLOUDINARY_KEY'),
         api_secret: env('CLOUDINARY_SECRET'),
       },
+      actionOptions: {
+        upload: {
+          folder: 'fidy', // opcional, ponle un nombre si quieres agrupar tus imágenes
+          use_filename: true,
+          unique_filename: false,
+          overwrite: true,
+        },
+        delete: {},
+      },
     },
   },
 });
